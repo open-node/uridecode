@@ -1,0 +1,23 @@
+{
+  "name": "uridecode",
+  "version": "1.0.0",
+  "description": "decodeUri safe",
+  "main": "index.js",
+  "scripts": {
+    "test": "./build && npm install && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/open-node/uridecode.git"
+  },
+  "keywords": [
+    "urldecode",
+    "decodeURI"
+  ],
+  "author": "Redstone Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-node/uridecode/issues"
+  },
+  "homepage": "https://github.com/open-node/uridecode"
+}
