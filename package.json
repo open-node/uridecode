@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/open-node/uridecode/issues"
   },
-  "homepage": "https://github.com/open-node/uridecode"
+  "homepage": "https://github.com/open-node/uridecode",
+  "dependencies": {
+    "iconv": "^2.1.11",
+    "underscore": "^1.8.3"
+  }
 }

@@ -1,3 +1,4 @@
+_     = require("underscore")
 Iconv = require("iconv").Iconv
 iconv = new Iconv 'gbk', 'utf8'
 
@@ -21,16 +22,18 @@ chr = (codePt) ->
 
 
 module.exports = (value) ->
-  splited = value.split '%'
-  str = splited.shift()
-  str += _.map(splited, (x)->
-    "#{funcs.chr(parseInt(x.substr(0, 2), 16))}#{x.substr 2}"
-  ).join('')
-
-  buf = new Buffer(str, 'ascii')
   try
-    return iconv.convert(buf).toString()
+    return decodeURIComponent(value)
   catch e
-    return buf.toString()
+    try
+      splited = value.split '%'
+      str = splited.shift()
+      str += _.map(splited, (x)->
+        "#{chr(parseInt(x.substr(0, 2), 16))}#{x.substr 2}"
+      ).join('')
 
-
+      buf = new Buffer(str, 'ascii')
+      return iconv.convert(buf).toString()
+    catch e
+      console.error e, e.stack
+      return buf.toString()
